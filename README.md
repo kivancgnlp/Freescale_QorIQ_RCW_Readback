@@ -1,2 +1,2 @@
-# Freescale_QorIQ_RCW_Readback
-RCW parser for reading configuration in the binary
+# Freescale QorIQ RCW Readback Utility App
+[RCW reader browser app](https://kivancgnlp.github.io/WebApps/Freescale_QorIQ_RCW_Readback)
