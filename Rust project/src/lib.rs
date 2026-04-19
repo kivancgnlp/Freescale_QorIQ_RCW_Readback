@@ -34,6 +34,10 @@ pub struct ParsedField {
 pub struct ParseResult {
     pub processor: String,
     pub fields: Vec<ParsedField>,
+    /// None = no end command found in data; Some(true/false) = CRC present and result
+    pub crc_ok: Option<bool>,
+    pub crc_stored: Option<String>,
+    pub crc_computed: Option<String>,
 }
 
 /// Returns a JSON array of available processor names.
@@ -80,9 +84,21 @@ pub fn parse_rcw(data: &[u8], processor: &str) -> String {
         });
     }
 
+    let (crc_ok, crc_stored, crc_computed) = match pbl::check_pbl_crc(data) {
+        Some(r) => (
+            Some(r.ok),
+            Some(format!("0x{:08X}", r.stored)),
+            Some(format!("0x{:08X}", r.computed)),
+        ),
+        None => (None, None, None),
+    };
+
     let result = ParseResult {
         processor: cfg.processor,
         fields,
+        crc_ok,
+        crc_stored,
+        crc_computed,
     };
 
     match serde_json::to_string(&result) {
