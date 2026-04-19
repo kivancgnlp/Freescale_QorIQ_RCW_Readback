@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  T2080 / T2081 Reset Configuration Word (RCW) Field Definitions
+  Reference: QorIQ T2080 Reference Manual — RCW Fields Table
+  RCW size: 512 bits (64 bytes), big-endian, MSB-first
+  bit_offset: 0-indexed from the first bit of the 512-bit RCW block
+  T2081 is a T2080 variant (4 cores vs 8) with the same RCW layout.
+  Reserved bit ranges are omitted.
+-->
+<rcw_config processor="T2080" rcw_bits="512">
+
+  <!-- ================================================================
+       PLL Configuration (Bits 0–127)
+       ================================================================ -->
+
+  <field name="SYS_PLL_CFG" bit_offset="0" width="2"
+         description="System PLL configuration">
+    <value encoding="0" meaning="All valid platform PLL frequencies"/>
+    <value encoding="1" meaning="Reserved"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <!-- bit 7 reserved -->
+  <field name="SYS_PLL_RAT" bit_offset="2" width="5"
+         description="System PLL multiplier ratio (platform clock : SYSCLK)">
+    <value encoding="3"  meaning="3:1"/>
+    <value encoding="4"  meaning="4:1"/>
+    <value encoding="5"  meaning="5:1"/>
+    <value encoding="6"  meaning="6:1"/>
+    <value encoding="7"  meaning="7:1"/>
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="9"  meaning="9:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="11" meaning="11:1"/>
+    <value encoding="12" meaning="12:1"/>
+  </field>
+
+  <field name="MEM_PLL_CFG" bit_offset="8" width="2"
+         description="Memory controller complex PLL configuration">
+    <value encoding="0" meaning="All valid DDR PLL frequencies"/>
+    <value encoding="1" meaning="Reserved"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <!-- MEM_PLL_RAT is 6 bits wide in T2080 (bits 10-15) -->
+  <field name="MEM_PLL_RAT" bit_offset="10" width="6"
+         description="Memory controller complex PLL multiplier ratio (DDR data rate / DDRCLK)">
+    <value encoding="4"  meaning="4:1 ratio (8:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="5"  meaning="5:1 ratio (10:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="6"  meaning="6:1 ratio (12:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="7"  meaning="7:1 ratio (14:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="8"  meaning="8:1 ratio (16:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="9"  meaning="9:1 ratio (18:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="10" meaning="10:1 ratio (20:1 DDR data rate / DDR REF CLK)"/>
+    <value encoding="12" meaning="12:1 ratio (24:1 DDR data rate / DDR REF CLK)"/>
+  </field>
+
+  <!-- bits 16-23 reserved -->
+
+  <field name="CGA_PLL1_CFG" bit_offset="24" width="2"
+         description="Cluster group A PLL 1 configuration">
+    <value encoding="0" meaning="All valid cluster group A PLL 1 frequencies"/>
+    <value encoding="1" meaning="Reserved"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="CGA_PLL1_RAT" bit_offset="26" width="6"
+         description="Cluster group A PLL 1 multiplier ratio (async mode)">
+    <value encoding="5"  meaning="5:1 Async"/>
+    <value encoding="6"  meaning="6:1 Async"/>
+    <value encoding="7"  meaning="7:1 Async"/>
+    <value encoding="8"  meaning="8:1 Async"/>
+    <value encoding="9"  meaning="9:1 Async"/>
+    <value encoding="10" meaning="10:1 Async"/>
+    <value encoding="11" meaning="11:1 Async"/>
+    <value encoding="12" meaning="12:1 Async"/>
+    <value encoding="13" meaning="13:1 Async"/>
+    <value encoding="14" meaning="14:1 Async"/>
+    <value encoding="15" meaning="15:1 Async"/>
+    <value encoding="16" meaning="16:1 Async"/>
+    <value encoding="17" meaning="17:1 Async"/>
+    <value encoding="18" meaning="18:1 Async"/>
+    <value encoding="19" meaning="19:1 Async"/>
+    <value encoding="20" meaning="20:1 Async"/>
+    <value encoding="24" meaning="24:1 Async"/>
+    <value encoding="28" meaning="28:1 Async"/>
+    <value encoding="30" meaning="30:1 Async"/>
+  </field>
+
+  <field name="CGA_PLL2_CFG" bit_offset="32" width="2"
+         description="Cluster group A PLL 2 configuration">
+    <value encoding="0" meaning="All valid cluster group A PLL 2 frequencies"/>
+    <value encoding="1" meaning="Reserved"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="CGA_PLL2_RAT" bit_offset="34" width="6"
+         description="Cluster group A PLL 2 multiplier ratio (async mode)">
+    <value encoding="5"  meaning="5:1 Async"/>
+    <value encoding="6"  meaning="6:1 Async"/>
+    <value encoding="7"  meaning="7:1 Async"/>
+    <value encoding="8"  meaning="8:1 Async"/>
+    <value encoding="9"  meaning="9:1 Async"/>
+    <value encoding="10" meaning="10:1 Async"/>
+    <value encoding="11" meaning="11:1 Async"/>
+    <value encoding="12" meaning="12:1 Async"/>
+    <value encoding="13" meaning="13:1 Async"/>
+    <value encoding="14" meaning="14:1 Async"/>
+    <value encoding="15" meaning="15:1 Async"/>
+    <value encoding="16" meaning="16:1 Async"/>
+    <value encoding="17" meaning="17:1 Async"/>
+    <value encoding="18" meaning="18:1 Async"/>
+    <value encoding="19" meaning="19:1 Async"/>
+    <value encoding="20" meaning="20:1 Async"/>
+    <value encoding="24" meaning="24:1 Async"/>
+    <value encoding="28" meaning="28:1 Async"/>
+    <value encoding="30" meaning="30:1 Async"/>
+  </field>
+
+  <!-- bits 40-95 reserved -->
+
+  <field name="C1_PLL_SEL" bit_offset="96" width="4"
+         description="Cluster 1 PLL select">
+    <value encoding="0" meaning="CGA_PLL1 / 1"/>
+    <value encoding="1" meaning="CGA_PLL1 / 2"/>
+    <value encoding="2" meaning="CGA_PLL1 / 4"/>
+    <value encoding="4" meaning="CGA_PLL2 / 1"/>
+    <value encoding="5" meaning="CGA_PLL2 / 2"/>
+    <value encoding="6" meaning="CGA_PLL2 / 4"/>
+  </field>
+
+  <!-- bits 100-127 reserved -->
+
+  <!-- ================================================================
+       SerDes PLL and Protocol Configuration (Bits 128–183)
+       ================================================================ -->
+
+  <!-- 8-bit protocol selects — too many combinations to enumerate;
+       shown with raw value only -->
+  <field name="SRDS_PRTCL_S1" bit_offset="128" width="8"
+         description="SerDes 1 protocol select (see SerDes Lane Assignments table)">
+  </field>
+
+  <field name="SRDS_PRTCL_S2" bit_offset="136" width="8"
+         description="SerDes 2 protocol select (must be used with SRDS_PRTCL_S1)">
+  </field>
+
+  <!-- bits 144-157 reserved -->
+
+  <field name="FM_MAC_RAT" bit_offset="158" width="1"
+         description="FM-to-MAC ratio">
+    <value encoding="0" meaning="Reserved"/>
+    <value encoding="1" meaning="MAC runs at 1x frequency of FM"/>
+  </field>
+
+  <!-- bit 159 reserved -->
+
+  <field name="SRDS_PLL_REF_CLK_SEL_S1" bit_offset="160" width="2"
+         description="SerDes 1 PLL reference clock select (bit 0=PLL1 lanes A-H, bit 1=PLL2 lanes C-H)">
+  </field>
+
+  <field name="SRDS_PLL_REF_CLK_SEL_S2" bit_offset="162" width="2"
+         description="SerDes 2 PLL reference clock select (bit 0=PLL1 lanes A-H, bit 1=PLL2 lanes C-H)">
+  </field>
+
+  <!-- bits 164-167 reserved -->
+
+  <field name="SRDS_PLL_PD_S1" bit_offset="168" width="2"
+         description="SerDes 1 PLL power down (bit 0=PLL1, bit 1=PLL2; 0=active, 1=powered down)">
+  </field>
+
+  <field name="SRDS_PLL_PD_S2" bit_offset="170" width="2"
+         description="SerDes 2 PLL power down (bit 0=PLL1, bit 1=PLL2; 0=active, 1=powered down)">
+  </field>
+
+  <!-- bits 172-175 reserved -->
+
+  <field name="SRDS_DIV_PEX_S1" bit_offset="176" width="2"
+         description="SerDes 1 PCIe frequency divider">
+    <value encoding="0" meaning="Max rate 8G (or 5G if that is the protocol maximum)"/>
+    <value encoding="1" meaning="Max rate 5G"/>
+    <value encoding="2" meaning="Max rate 2.5G"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="SRDS_DIV_SRIO_S2" bit_offset="178" width="1"
+         description="SerDes 2 serial RapidIO frequency divider">
+    <value encoding="0" meaning="5 Gbps"/>
+    <value encoding="1" meaning="2.5 Gbps"/>
+  </field>
+
+  <!-- bit 179 reserved -->
+
+  <field name="SRDS_DIV_AURORA_S2" bit_offset="180" width="1"
+         description="SerDes 2 Aurora frequency divider">
+    <value encoding="0" meaning="5 Gbps"/>
+    <value encoding="1" meaning="2.5 Gbps"/>
+  </field>
+
+  <field name="SRDS_DIV_PEX_S2" bit_offset="181" width="2"
+         description="SerDes 2 PCIe frequency divider">
+    <value encoding="0" meaning="8G (or 5G if that is the protocol maximum)"/>
+    <value encoding="1" meaning="5G"/>
+    <value encoding="2" meaning="2.5G"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <!-- bits 183-191 reserved -->
+
+  <!-- ================================================================
+       Boot Configuration (Bits 192–223)
+       ================================================================ -->
+
+  <field name="PBI_SRC" bit_offset="192" width="4"
+         description="Pre-boot initialization source">
+    <value encoding="0"  meaning="I2C1 normal addressing (up to 256-byte ROMs)"/>
+    <value encoding="1"  meaning="I2C1 extended addressing"/>
+    <value encoding="4"  meaning="SPI 16-bit addressing"/>
+    <value encoding="5"  meaning="SPI 24-bit addressing"/>
+    <value encoding="6"  meaning="SD/MMC (eSDHC)"/>
+    <value encoding="14" meaning="IFC (mode configured by IFC_MODE field)"/>
+    <value encoding="15" meaning="Disabled"/>
+  </field>
+
+  <field name="BOOT_LOC" bit_offset="196" width="5"
+         description="Boot location">
+    <value encoding="0"  meaning="PCIe 1"/>
+    <value encoding="1"  meaning="PCIe 2"/>
+    <value encoding="2"  meaning="PCIe 3"/>
+    <value encoding="3"  meaning="PCIe 4"/>
+    <value encoding="8"  meaning="SRIO 1"/>
+    <value encoding="9"  meaning="SRIO 2"/>
+    <value encoding="16" meaning="Memory complex (DDR)"/>
+    <value encoding="24" meaning="IFC (mode configured by IFC_MODE field)"/>
+  </field>
+
+  <field name="BOOT_HO" bit_offset="201" width="1"
+         description="Boot holdoff mode">
+    <value encoding="0" meaning="All cores except core 0 in holdoff"/>
+    <value encoding="1" meaning="All cores in holdoff"/>
+  </field>
+
+  <field name="SB_EN" bit_offset="202" width="1"
+         description="Secure boot enable">
+    <value encoding="0" meaning="Secure boot not enabled"/>
+    <value encoding="1" meaning="Secure boot enabled — boot from internal boot ROM"/>
+  </field>
+
+  <!-- IFC_MODE: 9 bits (203-211). Valid encodings are a subset of cfg_rcw_src.
+       No discrete value table in the RCW chapter; refer to cfg_rcw_src table. -->
+  <field name="IFC_MODE" bit_offset="203" width="9"
+         description="Integrated Flash Controller mode (used when PBI_SRC or BOOT_LOC = IFC; cfg_rcw_src has precedence)">
+  </field>
+
+  <!-- bits 212-223 reserved -->
+
+  <!-- ================================================================
+       Clocking Configuration (Bits 224–255)
+       ================================================================ -->
+
+  <field name="HWA_CGA_M1_CLK_SEL" bit_offset="224" width="3"
+         description="Cluster group A mux 1 clock select (used for FM)">
+    <value encoding="0" meaning="Reserved"/>
+    <value encoding="1" meaning="CGA PLL 1 / 1 (async)"/>
+    <value encoding="2" meaning="CGA PLL 1 / 2 (async)"/>
+    <value encoding="3" meaning="CGA PLL 1 / 3 (async)"/>
+    <value encoding="4" meaning="CGA PLL 1 / 4 (async)"/>
+    <value encoding="5" meaning="Platform clock"/>
+    <value encoding="6" meaning="CGA PLL 2 / 2 (async)"/>
+    <value encoding="7" meaning="CGA PLL 2 / 3 (async)"/>
+  </field>
+
+  <!-- bits 227-229 reserved -->
+
+  <field name="DRAM_LAT" bit_offset="230" width="2"
+         description="DDR latency setting">
+    <value encoding="0" meaning="6-6-6 or 7-7-7 DRAMs"/>
+    <value encoding="1" meaning="8-8-8, 9-9-9, 10-10-10, 11-11-11, or higher DRAMs"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="5-5-5 DRAMs"/>
+  </field>
+
+  <field name="DDR_RATE" bit_offset="232" width="1"
+         description="DDR data rate — reserved, must be 0">
+    <value encoding="0" meaning="Reserved (must be 0)"/>
+  </field>
+
+  <!-- bits 233-255 reserved -->
+
+  <!-- ================================================================
+       Memory and High-Speed I/O Configuration (Bits 256–287)
+       ================================================================ -->
+
+  <!-- bits 256-259 reserved -->
+
+  <field name="RIO_DEVICE_ID" bit_offset="260" width="3"
+         description="RapidIO device ID (see BDIDCSR[BDID] register)">
+  </field>
+
+  <field name="RIO_SYS_SIZE" bit_offset="263" width="1"
+         description="RapidIO system size">
+    <value encoding="0" meaning="Small system (256 devices)"/>
+    <value encoding="1" meaning="Large system (65,536 devices)"/>
+  </field>
+
+  <field name="HOST_AGT_PEX" bit_offset="264" width="3"
+         description="Host/agent mode for all PCIe interfaces">
+    <value encoding="0" meaning="All PCIe in root complex (RC) mode"/>
+    <value encoding="1" meaning="All PCIe in endpoint (EP) mode"/>
+    <value encoding="2" meaning="PCIe1 and PCIe3 in EP mode, rest in RC mode"/>
+    <value encoding="3" meaning="PCIe2 and PCIe3 in EP mode, rest in RC mode"/>
+    <value encoding="4" meaning="PCIe1 in EP mode, rest in RC mode"/>
+    <value encoding="5" meaning="PCIe2 in EP mode, rest in RC mode"/>
+    <value encoding="6" meaning="PCIe3 in EP mode, rest in RC mode"/>
+    <value encoding="7" meaning="PCIe4 in EP mode, rest in RC mode"/>
+  </field>
+
+  <field name="HOST_AGT_SRIO" bit_offset="267" width="1"
+         description="Host/agent mode for all serial RapidIO interfaces">
+    <value encoding="0" meaning="All host mode"/>
+    <value encoding="1" meaning="All agent mode"/>
+  </field>
+
+  <field name="RIO_RESPOND_ONLY" bit_offset="268" width="1"
+         description="RapidIO respond-only mode">
+    <value encoding="0" meaning="SRIO interfaces may issue requests into the system"/>
+    <value encoding="1" meaning="SRIO interfaces respond only (no requests issued)"/>
+  </field>
+
+  <!-- bits 269-287 reserved -->
+
+  <!-- ================================================================
+       General Purpose Information (Bits 288–319)
+       ================================================================ -->
+
+  <field name="GP_INFO" bit_offset="288" width="32"
+         description="General purpose information — no effect on functional logic, usable by software">
+  </field>
+
+  <!-- bits 320-351 reserved -->
+
+  <!-- ================================================================
+       Pin Multiplexing Configuration — Group A (Bits 352–415)
+       ================================================================ -->
+
+  <!-- bits 352-356 reserved -->
+
+  <field name="IRQ_EXT" bit_offset="357" width="3"
+         description="IRQ extension — configures IRQ[3:11] pins together with IRQ_BASE">
+    <value encoding="0" meaning="IRQ[3:11] or GPIO_1[23:31] as defined by IRQ_BASE"/>
+    <value encoding="1" meaning="{SDHC_VS, IRQ[4:9]/GPIO1[24:29] per IRQ_BASE, SDHC_CLK_SYNC_IN, IRQ[11]/GPIO1[31] per IRQ_BASE}"/>
+  </field>
+
+  <field name="SPI_EXT" bit_offset="360" width="3"
+         description="SPI extension — configures SPI pins together with SPI_BASE">
+    <value encoding="0" meaning="See SPI_BASE for definition"/>
+    <value encoding="1" meaning="SPI_CS_B[0:2]/GPIO2[0:2]/SDHC_DAT[4:6] per SPI_BASE, SDHC_CLK_SYNC_OUT"/>
+  </field>
+
+  <!-- bits 363-365 reserved -->
+
+  <field name="UART_BASE" bit_offset="366" width="3"
+         description="UART pin mux — UART1/UART2 pins">
+    <value encoding="0" meaning="All GPIO1[15:22]"/>
+    <value encoding="3" meaning="UART1_SOUT/SIN + remaining GPIO"/>
+    <value encoding="4" meaning="Full UART1 (SOUT, SIN, RTS_B, CTS_B) + remaining GPIO"/>
+    <value encoding="5" meaning="UART1_SOUT/SIN + UART2_SOUT/SIN + remaining GPIO"/>
+    <value encoding="6" meaning="Full UART1 + Full UART2"/>
+    <value encoding="7" meaning="UART1 + UART3 + UART2 + UART4 (4 UARTs)"/>
+  </field>
+
+  <field name="ASLEEP" bit_offset="369" width="1"
+         description="ASLEEP pin mux">
+    <value encoding="0" meaning="ASLEEP"/>
+    <value encoding="1" meaning="GPIO1[13]"/>
+  </field>
+
+  <field name="RTC" bit_offset="370" width="1"
+         description="RTC pin mux">
+    <value encoding="0" meaning="RTC"/>
+    <value encoding="1" meaning="GPIO1[14]"/>
+  </field>
+
+  <field name="SDHC_BASE" bit_offset="371" width="1"
+         description="SDHC pin mux — {SDHC_CMD, SDHC_DAT[0:3], SDHC_CLK}">
+    <value encoding="0" meaning="{SDHC_CMD, SDHC_DAT[0:3], SDHC_CLK}"/>
+    <value encoding="1" meaning="GPIO2[4:9]"/>
+  </field>
+
+  <field name="IRQ_OUT" bit_offset="372" width="1"
+         description="IRQ_OUT_B pin mux">
+    <value encoding="0" meaning="IRQ_OUT_B"/>
+    <value encoding="1" meaning="EVT_B[9]"/>
+  </field>
+
+  <!-- IRQ_BASE: 9 bits (373-381), one bit per IRQ[3:11] / GPIO1[23:31].
+       Bitmask field — no discrete combined value mappings. -->
+  <field name="IRQ_BASE" bit_offset="373" width="9"
+         description="IRQ[3:11] pin mux (one bit per pin; 0=IRQ, 1=GPIO1[23:31])">
+  </field>
+
+  <field name="SPI_BASE" bit_offset="382" width="2"
+         description="SPI_CS_B[0:3] pin mux">
+    <value encoding="0" meaning="SPI_CS_B[0:3]"/>
+    <value encoding="1" meaning="SDHC_DAT[4:7] (8-bit MMC card support)"/>
+    <value encoding="2" meaning="GPIO2[0:3]"/>
+    <value encoding="3" meaning="SDHC_CMD_DIR, SDHC_DAT0_DIR, SDHC_DAT123_DIR"/>
+  </field>
+
+  <!-- ================================================================
+       Pin Multiplexing Configuration — Group B (Bits 384–415)
+       ================================================================ -->
+
+  <!-- bits 384-404 reserved -->
+
+  <field name="IFC_GRP_E1_BASE" bit_offset="405" width="1"
+         description="IFC Group E1 pin mux — {IFC_CS_B[1:3]}">
+    <value encoding="0" meaning="{IFC_CS_B[1:3]}"/>
+    <value encoding="1" meaning="{GPIO2[10:12]}"/>
+  </field>
+
+  <field name="IFC_GRP_E2_BASE" bit_offset="406" width="1"
+         description="IFC Group E2 pin mux — {IFC_CS_B[4:7]}">
+    <value encoding="0" meaning="{IFC_CS_B[4:7]}"/>
+    <value encoding="1" meaning="{GPIO1[9:12]}"/>
+  </field>
+
+  <field name="IFC_GRP_D_BASE" bit_offset="407" width="1"
+         description="IFC Group D pin mux — {IFC_PAR[0:1], IFC_PERR_B}">
+    <value encoding="0" meaning="{IFC_PAR[0:1], IFC_PERR_B}"/>
+    <value encoding="1" meaning="{GPIO2[13:15]}"/>
+  </field>
+
+  <!-- bits 408-409 reserved -->
+
+  <field name="IFC_GRP_B_BASE" bit_offset="410" width="2"
+         description="IFC Group B pin mux — {IFC_A[28:31]}">
+    <value encoding="0" meaning="{IFC_A[28:31]}"/>
+    <value encoding="1" meaning="{GPIO2[28:31]}"/>
+    <value encoding="2" meaning="{unused, IFC_RB_B[2:4]}"/>
+  </field>
+
+  <field name="IFC_GRP_A_BASE" bit_offset="412" width="2"
+         description="IFC Group A pin mux — {IFC_A[25:27]}">
+    <value encoding="0" meaning="{IFC_A[25:27]}"/>
+    <value encoding="1" meaning="{GPIO2[25:27]}"/>
+    <value encoding="2" meaning="{IFC_WP_B[1:3]}"/>
+  </field>
+
+  <!-- bits 414-415 reserved -->
+
+  <!-- ================================================================
+       SoC-Specific Configuration (Bits 416–447)
+       ================================================================ -->
+
+  <field name="PMUX_1588" bit_offset="416" width="1"
+         description="IEEE 1588 / GPIO3[0:7] pin mux">
+    <value encoding="0" meaning="GPIO3[0:7]"/>
+    <value encoding="1" meaning="IEEE 1588 timer signals"/>
+  </field>
+
+  <field name="PMUX_EC1" bit_offset="417" width="2"
+         description="EC1 parallel mode pins (MAC3 RGMII / GPIO)">
+    <value encoding="0" meaning="Frame Manager MAC3 RGMII"/>
+    <value encoding="1" meaning="Reserved"/>
+    <value encoding="2" meaning="GPIO3[11:23]"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="PMUX_EC2" bit_offset="419" width="2"
+         description="EC2 parallel mode pins (MAC4 / MAC10 RGMII / GPIO)">
+    <value encoding="0" meaning="Frame Manager MAC4 RGMII"/>
+    <value encoding="1" meaning="Frame Manager MAC10 RGMII"/>
+    <value encoding="2" meaning="GPIO3[24:31], GPIO4[27:31]"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="PMUX_I2C3" bit_offset="421" width="2"
+         description="I2C3 pin mux">
+    <value encoding="0" meaning="{IIC3_SCL, IIC3_SDA}"/>
+    <value encoding="1" meaning="GPIO4[0:1]"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="PMUX_I2C4" bit_offset="423" width="2"
+         description="I2C4 pin mux">
+    <value encoding="0" meaning="{IIC4_SCL, IIC4_SDA}"/>
+    <value encoding="1" meaning="GPIO4[2:3]"/>
+    <value encoding="2" meaning="EVT_B[5:6]"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <!-- bits 425-443 reserved -->
+
+  <field name="PMUX_DMA1" bit_offset="444" width="1"
+         description="DMA1 pin mux">
+    <value encoding="0" meaning="{DMA1_DREQ0_B, DMA1_DACK0_B, DMA1_DDONE0_B}"/>
+    <value encoding="1" meaning="{GPIO4[4:6]}"/>
+  </field>
+
+  <field name="PMUX_SDHC" bit_offset="445" width="1"
+         description="SDHC CD/WP pin mux">
+    <value encoding="0" meaning="{SDHC_CD_B, SDHC_WP}"/>
+    <value encoding="1" meaning="{GPIO4[24:25]}"/>
+  </field>
+
+  <field name="PMUX_DMA2" bit_offset="446" width="2"
+         description="DMA2 pin mux">
+    <value encoding="0" meaning="{DMA2_DREQ0_B, DMA2_DACK0_B, DMA2_DDONE0_B}"/>
+    <value encoding="1" meaning="{GPIO4[7:9]}"/>
+    <value encoding="2" meaning="{GPIO4[7], EVT_B[7:8]}"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <!-- bits 448-508 reserved -->
+
+  <!-- ================================================================
+       PLL and Clocking Expansion (Bits 509–511)
+       ================================================================ -->
+
+  <field name="HWA_CGA_M2_CLK_SEL" bit_offset="509" width="3"
+         description="Cluster group A mux 2 clock select (used for eSDHC SDR mode)">
+    <value encoding="0" meaning="Reserved"/>
+    <value encoding="1" meaning="CGA PLL 2 / 1 (async)"/>
+    <value encoding="2" meaning="CGA PLL 2 / 2 (async)"/>
+    <value encoding="3" meaning="CGA PLL 2 / 3 (async)"/>
+    <value encoding="4" meaning="CGA PLL 2 / 4 (async)"/>
+    <value encoding="5" meaning="Cluster clock"/>
+    <value encoding="6" meaning="CGA PLL 1 / 2 (async)"/>
+    <value encoding="7" meaning="CGA PLL 1 / 3 (async)"/>
+  </field>
+
+</rcw_config>

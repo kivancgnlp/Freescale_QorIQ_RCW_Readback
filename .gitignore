@@ -1,0 +1,8 @@
+# Local deployment staging — never commit this
+_deploy/
+
+# Rust build artifacts
+Rust project/target/
+Rust project/pkg/
+Rust project/.idea/
+.DS_Store
