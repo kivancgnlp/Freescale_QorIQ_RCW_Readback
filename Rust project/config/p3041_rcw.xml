@@ -159,6 +159,35 @@
   <!-- bit 134 reserved -->
   <field name="SRDS_PRTCL" bit_offset="128" width="6"
          description="SerDes protocol select (see SerDes Lane Assignments table)">
+    <value encoding="2"  meaning="B1: PCIe1·PCIe2·PCIe4·Debug  B2: PCIe3·SGMII EC2/3/4  B3: SATA1/2"/>
+    <value encoding="4"  meaning="B1: sRIO2·sRIO1·PCIe2·Debug  B2: PCIe3·SGMII EC2/3/4  B3: XAUI/10GEC"/>
+    <value encoding="11" meaning="B1: PCIe1·sRIO2·sRIO1·PCIe2·Debug  B2: PCIe3·SGMII EC2/3/4  B3: SATA1/2"/>
+    <value encoding="16" meaning="B1: PCIe1·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="17" meaning="B1: PCIe1·PCIe2·Debug  B2: SGMII EC1/2/3/4  B3: SATA1/2"/>
+    <value encoding="19" meaning="B1: PCIe1·PCIe2·Debug  B2: SGMII EC1/2/3/4  B3: XAUI/10GEC"/>
+    <value encoding="20" meaning="B1: PCIe1·PCIe2·PCIe3·Debug  B2: —  B3: SGMII EC1/2/3/4 (3.125G)"/>
+    <value encoding="21" meaning="B1: PCIe1·PCIe2·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="22" meaning="B1: PCIe1·PCIe2·Debug  B2: SGMII EC1/2/3/4  B3: sRIO1 (3.125G)"/>
+    <value encoding="23" meaning="B1: sRIO2·sRIO1·Debug  B2: SGMII EC1/2/3/4  B3: SATA1/2"/>
+    <value encoding="24" meaning="B1: sRIO2·sRIO1·Debug  B2: SGMII EC1/2/3/4  B3: SGMII EC5"/>
+    <value encoding="27" meaning="B1: sRIO2·sRIO1·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="29" meaning="B1: sRIO2·sRIO1·Debug  B2: PCIe3  B3: SATA1/2"/>
+    <value encoding="32" meaning="B1: PCIe1·sRIO1·Debug  B2: SGMII EC1/2/3/4  B3: XAUI/10GEC"/>
+    <value encoding="33" meaning="B1: PCIe1·sRIO1·PCIe3·Debug  B2: —  B3: SGMII EC1/2/3/4 (3.125G)"/>
+    <value encoding="34" meaning="B1: PCIe1·sRIO1·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="35" meaning="B1: PCIe1·sRIO2·sRIO1·Debug  B2: SGMII EC1/2/3/4  B3: SATA1/2"/>
+    <value encoding="36" meaning="B1: PCIe1·sRIO2·sRIO1·Debug  B2: SGMII EC1/2/3/4  B3: SGMII EC5"/>
+    <value encoding="40" meaning="B1: PCIe1·PCIe3·PCIe2·Debug  B2: SGMII EC1/2/3/4  B3: SATA1/2"/>
+    <value encoding="41" meaning="B1: PCIe1·PCIe3·PCIe2·Debug  B2: SGMII EC1/2/3/4  B3: SGMII EC5"/>
+    <value encoding="42" meaning="B1: PCIe1·PCIe3·PCIe2·Debug  B2: SGMII EC1/2/3/4  B3: XAUI/10GEC"/>
+    <value encoding="43" meaning="B1: PCIe1·PCIe3·PCIe2·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="47" meaning="B1: PCIe1·PCIe3·sRIO2·sRIO1·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="49" meaning="B1: PCIe1·PCIe3·sRIO1·Debug  B2: SGMII EC1/2/3/4  B3: SGMII EC5"/>
+    <value encoding="51" meaning="B1: PCIe1·PCIe3·sRIO1·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="52" meaning="B1: PCIe1·SGMII EC1/2/3/4·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="53" meaning="B1: PCIe1·PCIe2·SGMII EC3/4·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="54" meaning="B1: PCIe1·PCIe3·SGMII EC1/2/3/4·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
+    <value encoding="55" meaning="B1: PCIe1·PCIe3·PCIe2·SGMII EC3/4·Debug  B2: XAUI/10GEC  B3: SATA1/2"/>
   </field>
 
   <field name="SRDS_RIO_SPD" bit_offset="135" width="1"

@@ -143,10 +143,60 @@
        shown with raw value only -->
   <field name="SRDS_PRTCL_S1" bit_offset="128" width="8"
          description="SerDes 1 protocol select (see SerDes Lane Assignments table)">
+    <value encoding="28"  meaning="SGMII 9/10/1/2/3/4/5/6 (all SGMII)"/>
+    <value encoding="81"  meaning="XAUI 9 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="95"  meaning="HiGig 9 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="101" meaning="HiGig 9 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="102" meaning="XFI 9/10 · SGMII 1/2 · PCIe4 (lanes F–H unused)"/>
+    <value encoding="103" meaning="XFI 9/10 · SGMII 1/2 · PCIe4 (lanes F–H unused)"/>
+    <value encoding="106" meaning="XFI 9/10 · XFI 1/2 · PCIe4 (lanes F–H unused)"/>
+    <value encoding="107" meaning="XFI 9/10 · XFI 1/2 · PCIe4 (lanes F–H unused)"/>
+    <value encoding="110" meaning="XFI 9/10 · SGMII 1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="113" meaning="XFI 9/10 · SGMII 1/2 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="130" meaning="SGMII 9/10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="131" meaning="SGMII 9/10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="138" meaning="SGMII 9/10/1/2 · PCIe4"/>
+    <value encoding="142" meaning="SGMII 9/10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="143" meaning="SGMII 9/10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="148" meaning="SGMII 9/10/1/2 · PCIe4"/>
+    <value encoding="149" meaning="SGMII 9/10/1/2 · PCIe4 (SGMII 3 on PLL2)"/>
+    <value encoding="150" meaning="SGMII 9/10 · XFI 1/2 · PCIe4 (all SGMII+XFI)"/>
+    <value encoding="162" meaning="SGMII 9/10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="163" meaning="PCIe3(x2) · PCIe4(x2) · PCIe1 · PCIe2 · SGMII 6"/>
+    <value encoding="164" meaning="PCIe3(x4) · PCIe4"/>
+    <value encoding="170" meaning="PCIe3(x4) · PCIe4"/>
+    <value encoding="171" meaning="PCIe3(x4) · PCIe4"/>
+    <value encoding="172" meaning="PCIe3 · SGMII 1/2 · PCIe4"/>
+    <value encoding="188" meaning="PCIe3(x4) (lanes E–H unused)"/>
+    <value encoding="200" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="203" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="210" meaning="SGMII 9/10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="211" meaning="PCIe3(x4) (lanes E–H unused)"/>
+    <value encoding="214" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · SGMII 5/6"/>
+    <value encoding="216" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="217" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="218" meaning="PCIe3(x2) · PCIe4 · PCIe1 · SGMII 5/6"/>
+    <value encoding="222" meaning="PCIe3(x2) · PCIe4(x2) · PCIe1 · SGMII 5/6"/>
+    <value encoding="224" meaning="SGMII 9/10 · XFI 1/2 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="226" meaning="SGMII 9/10 · XFI 1/2 · PCIe4 · SGMII 4/5/6"/>
+    <value encoding="242" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · PCIe1 · PCIe2 · SGMII 6"/>
+    <value encoding="248" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · PCIe1 · PCIe2 · SGMII 6"/>
+    <value encoding="250" meaning="PCIe3 · SGMII 10/1/2 · PCIe4 · PCIe1 · SGMII 5/6"/>
   </field>
 
   <field name="SRDS_PRTCL_S2" bit_offset="136" width="8"
          description="SerDes 2 protocol select (must be used with SRDS_PRTCL_S1)">
+    <value encoding="1"  meaning="PCIe1 (x4)"/>
+    <value encoding="2"  meaning="PCIe1 (x4)"/>
+    <value encoding="21" meaning="PCIe1 · PCIe2 · SATA1 · SATA2"/>
+    <value encoding="22" meaning="PCIe1 · PCIe2 · SATA1 · SATA2"/>
+    <value encoding="24" meaning="PCIe1 · Aurora · SATA1 · SATA2"/>
+    <value encoding="31" meaning="PCIe1 (x4) · PCIe2 (x4)"/>
+    <value encoding="39" meaning="PCIe1 · SATA1 · SATA2"/>
+    <value encoding="41" meaning="SRIO2 · SRIO1"/>
+    <value encoding="45" meaning="SRIO2 · SRIO1"/>
+    <value encoding="46" meaning="SRIO2 · SRIO1"/>
+    <value encoding="54" meaning="SRIO2 · Aurora · SATA1 · SATA2"/>
   </field>
 
   <!-- bits 144-157 reserved -->
