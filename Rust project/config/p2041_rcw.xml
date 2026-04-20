@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  P2041 Reset Configuration Word (RCW) Field Definitions
+  Reference: QorIQ P2041 Reference Manual — RCW Fields Table
+  RCW size: 512 bits (64 bytes), big-endian, MSB-first
+  P2041 is a 4-core variant of P3041 with 2 SerDes banks (no bank 3).
+-->
+<rcw_config processor="P2041" rcw_bits="512">
+
+  <!-- ================================================================
+       PLL Configuration (Bits 0–127)
+       ================================================================ -->
+
+  <field name="SYS_PLL_CFG" bit_offset="0" width="2"
+         description="System PLL configuration">
+    <value encoding="0" meaning="Platform PLL targeting 667 MHz and above"/>
+    <value encoding="1" meaning="Platform PLL targeting below 667 MHz"/>
+    <value encoding="2" meaning="Reserved"/>
+    <value encoding="3" meaning="Reserved"/>
+  </field>
+
+  <field name="SYS_PLL_RAT" bit_offset="2" width="5"
+         description="System PLL multiplier ratio (platform clock : SYSCLK)">
+    <value encoding="4"  meaning="4:1"/>
+    <value encoding="5"  meaning="5:1"/>
+    <value encoding="6"  meaning="6:1"/>
+    <value encoding="7"  meaning="7:1"/>
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="9"  meaning="9:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="11" meaning="11:1"/>
+    <value encoding="12" meaning="12:1"/>
+  </field>
+
+  <field name="MEM_PLL_CFG" bit_offset="8" width="2"
+         description="Memory controller PLL configuration">
+    <value encoding="0" meaning="Lower frequency reference clock"/>
+    <value encoding="1" meaning="Higher frequency reference clock"/>
+  </field>
+
+  <field name="MEM_PLL_RAT" bit_offset="10" width="5"
+         description="Memory controller PLL multiplier ratio">
+    <value encoding="5"  meaning="5:1"/>
+    <value encoding="6"  meaning="6:1"/>
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="9"  meaning="9:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="12" meaning="12:1"/>
+    <value encoding="13" meaning="13:1"/>
+    <value encoding="16" meaning="16:1"/>
+    <value encoding="18" meaning="18:1"/>
+    <value encoding="20" meaning="20:1"/>
+    <value encoding="24" meaning="24:1"/>
+  </field>
+
+  <field name="CC1_PLL_CFG" bit_offset="64" width="2"
+         description="Core cluster PLL 1 configuration">
+    <value encoding="0" meaning="PLL output targeting 1 GHz and above"/>
+    <value encoding="1" meaning="PLL output targeting below 1 GHz"/>
+  </field>
+
+  <field name="CC1_PLL_RAT" bit_offset="66" width="5"
+         description="Core cluster PLL 1 multiplier ratio">
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="9"  meaning="9:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="11" meaning="11:1"/>
+    <value encoding="12" meaning="12:1"/>
+    <value encoding="13" meaning="13:1"/>
+    <value encoding="14" meaning="14:1"/>
+    <value encoding="15" meaning="15:1"/>
+    <value encoding="16" meaning="16:1"/>
+    <value encoding="18" meaning="18:1"/>
+    <value encoding="20" meaning="20:1"/>
+    <value encoding="22" meaning="22:1"/>
+  </field>
+
+  <field name="CC2_PLL_CFG" bit_offset="72" width="2"
+         description="Core cluster PLL 2 configuration">
+    <value encoding="0" meaning="PLL output targeting 1 GHz and above"/>
+    <value encoding="1" meaning="PLL output targeting below 1 GHz"/>
+  </field>
+
+  <field name="CC2_PLL_RAT" bit_offset="74" width="5"
+         description="Core cluster PLL 2 multiplier ratio">
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="9"  meaning="9:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="11" meaning="11:1"/>
+    <value encoding="12" meaning="12:1"/>
+    <value encoding="13" meaning="13:1"/>
+    <value encoding="14" meaning="14:1"/>
+    <value encoding="15" meaning="15:1"/>
+    <value encoding="16" meaning="16:1"/>
+    <value encoding="18" meaning="18:1"/>
+    <value encoding="20" meaning="20:1"/>
+    <value encoding="22" meaning="22:1"/>
+  </field>
+
+  <field name="C0_PLL_SEL" bit_offset="96" width="4"
+         description="Core 0 clock PLL select">
+    <value encoding="0"  meaning="CC1 PLL / 1"/>
+    <value encoding="1"  meaning="CC1 PLL / 2"/>
+    <value encoding="2"  meaning="CC1 PLL / 4"/>
+    <value encoding="4"  meaning="CC2 PLL / 1"/>
+    <value encoding="5"  meaning="CC2 PLL / 2"/>
+    <value encoding="6"  meaning="CC2 PLL / 4"/>
+  </field>
+
+  <field name="C1_PLL_SEL" bit_offset="100" width="4"
+         description="Core 1 clock PLL select">
+    <value encoding="0"  meaning="CC1 PLL / 1"/>
+    <value encoding="1"  meaning="CC1 PLL / 2"/>
+    <value encoding="2"  meaning="CC1 PLL / 4"/>
+    <value encoding="4"  meaning="CC2 PLL / 1"/>
+    <value encoding="5"  meaning="CC2 PLL / 2"/>
+    <value encoding="6"  meaning="CC2 PLL / 4"/>
+  </field>
+
+  <field name="C2_PLL_SEL" bit_offset="104" width="4"
+         description="Core 2 clock PLL select">
+    <value encoding="0"  meaning="CC1 PLL / 1"/>
+    <value encoding="1"  meaning="CC1 PLL / 2"/>
+    <value encoding="2"  meaning="CC1 PLL / 4"/>
+    <value encoding="4"  meaning="CC2 PLL / 1"/>
+    <value encoding="5"  meaning="CC2 PLL / 2"/>
+    <value encoding="6"  meaning="CC2 PLL / 4"/>
+  </field>
+
+  <field name="C3_PLL_SEL" bit_offset="108" width="4"
+         description="Core 3 clock PLL select">
+    <value encoding="0"  meaning="CC1 PLL / 1"/>
+    <value encoding="1"  meaning="CC1 PLL / 2"/>
+    <value encoding="2"  meaning="CC1 PLL / 4"/>
+    <value encoding="4"  meaning="CC2 PLL / 1"/>
+    <value encoding="5"  meaning="CC2 PLL / 2"/>
+    <value encoding="6"  meaning="CC2 PLL / 4"/>
+  </field>
+
+  <!-- ================================================================
+       SerDes PLL and Protocol Configuration (Bits 128–183)
+       P2041 has 2 SerDes banks (no bank 3).
+       ================================================================ -->
+
+  <field name="SRDS_PRTCL" bit_offset="128" width="6"
+         description="SerDes protocol select (see SerDes Lane Assignments table)">
+  </field>
+
+  <field name="SRDS_RIO_SPD" bit_offset="135" width="1"
+         description="SerDes RapidIO speed">
+    <value encoding="0" meaning="2.5 Gbps or 5 Gbps per lane"/>
+    <value encoding="1" meaning="3.125 Gbps per lane"/>
+  </field>
+
+  <field name="SRDS_RATIO_B1" bit_offset="136" width="3"
+         description="SerDes PLL ratio — bank 1">
+    <value encoding="2" meaning="25:1"/>
+    <value encoding="3" meaning="40:1"/>
+    <value encoding="4" meaning="50:1"/>
+  </field>
+
+  <field name="SRDS_DIV_B1" bit_offset="140" width="3"
+         description="SerDes PLL post-divider — bank 1">
+  </field>
+
+  <field name="SRDS_RATIO_B2" bit_offset="144" width="3"
+         description="SerDes PLL ratio — bank 2">
+    <value encoding="1" meaning="20:1"/>
+    <value encoding="2" meaning="25:1"/>
+    <value encoding="3" meaning="40:1"/>
+    <value encoding="4" meaning="50:1"/>
+  </field>
+
+  <field name="SRDS_DIV_B2" bit_offset="147" width="1"
+         description="SerDes PLL post-divider — bank 2">
+    <value encoding="0" meaning="Divide by 1"/>
+    <value encoding="1" meaning="Divide by 2"/>
+  </field>
+
+  <field name="SRDS_LPD_B1" bit_offset="154" width="6"
+         description="SerDes lane power down — bank 1 (bitmask; 0=active, 1=powered down)">
+  </field>
+
+  <field name="SRDS_LPD_B2" bit_offset="162" width="4"
+         description="SerDes lane power down — bank 2 (bitmask; 0=active, 1=powered down)">
+  </field>
+
+  <field name="SRDS_EN" bit_offset="178" width="1"
+         description="SerDes enable">
+    <value encoding="0" meaning="SerDes disabled"/>
+    <value encoding="1" meaning="SerDes enabled"/>
+  </field>
+
+  <field name="DDR_SYNC" bit_offset="184" width="1"
+         description="DDR synchronous mode">
+    <value encoding="0" meaning="Asynchronous — memory PLL reference is SYSCLK"/>
+    <value encoding="1" meaning="Synchronous — memory PLL reference is platform clock"/>
+  </field>
+
+  <!-- ================================================================
+       Boot Configuration (Bits 192–223)
+       ================================================================ -->
+
+  <field name="PBI_SRC" bit_offset="192" width="4"
+         description="Pre-boot initialization source">
+    <value encoding="0"  meaning="I2C1 normal addressing"/>
+    <value encoding="1"  meaning="I2C1 extended addressing"/>
+    <value encoding="4"  meaning="SPI 16-bit addressing"/>
+    <value encoding="5"  meaning="SPI 24-bit addressing"/>
+    <value encoding="6"  meaning="eSDHC"/>
+    <value encoding="8"  meaning="eLBC FCM 8-bit small page NAND Flash"/>
+    <value encoding="9"  meaning="eLBC FCM 8-bit large page NAND Flash"/>
+    <value encoding="12" meaning="eLBC GPCM 8-bit NOR Flash"/>
+    <value encoding="13" meaning="eLBC GPCM 16-bit NOR Flash"/>
+    <value encoding="14" meaning="eLBC GPCM 32-bit NOR Flash"/>
+    <value encoding="15" meaning="Disabled"/>
+  </field>
+
+  <field name="BOOT_LOC" bit_offset="196" width="5"
+         description="Boot location">
+    <value encoding="0"  meaning="PCI Express 1"/>
+    <value encoding="1"  meaning="PCI Express 2"/>
+    <value encoding="2"  meaning="PCI Express 3"/>
+    <value encoding="3"  meaning="PCI Express 4"/>
+    <value encoding="8"  meaning="sRIO 1"/>
+    <value encoding="9"  meaning="sRIO 2"/>
+    <value encoding="16" meaning="Memory complex 1 (DDR)"/>
+    <value encoding="24" meaning="eLBC FCM 8-bit small page NAND Flash"/>
+    <value encoding="25" meaning="eLBC FCM 8-bit large page NAND Flash"/>
+    <value encoding="28" meaning="eLBC GPCM 8-bit NOR Flash"/>
+    <value encoding="29" meaning="eLBC GPCM 16-bit NOR Flash"/>
+    <value encoding="30" meaning="eLBC GPCM 32-bit NOR Flash"/>
+  </field>
+
+  <field name="BOOT_HO" bit_offset="201" width="1"
+         description="Boot holdoff mode">
+    <value encoding="0" meaning="All cores except core 0 in holdoff"/>
+    <value encoding="1" meaning="All cores in holdoff"/>
+  </field>
+
+  <field name="SB_EN" bit_offset="202" width="1"
+         description="Secure boot enable">
+    <value encoding="0" meaning="Disabled"/>
+    <value encoding="1" meaning="Enabled — boot from internal ROM"/>
+  </field>
+
+  <!-- ================================================================
+       Clocking Configuration (Bits 224–255)
+       ================================================================ -->
+
+  <field name="FM_CLK_SEL" bit_offset="225" width="1"
+         description="Frame Manager clock select">
+    <value encoding="0" meaning="Platform clock / 2"/>
+    <value encoding="1" meaning="CC2 PLL / 2 (async)"/>
+  </field>
+
+  <field name="HWA_ASYNC_DIV" bit_offset="229" width="1"
+         description="Hardware accelerator async clock divider">
+    <value encoding="0" meaning="CC2 PLL / 2"/>
+    <value encoding="1" meaning="CC2 PLL / 4"/>
+  </field>
+
+  <field name="DRAM_LAT" bit_offset="230" width="2"
+         description="DDR latency setting">
+    <value encoding="0" meaning="6-6-6 or 7-7-7 DRAMs"/>
+    <value encoding="1" meaning="8-8-8 through 11-11-11 DRAMs"/>
+    <value encoding="3" meaning="5-5-5 DRAMs"/>
+  </field>
+
+  <field name="DDR_RATE" bit_offset="232" width="1"
+         description="DDR data rate select">
+  </field>
+
+  <!-- ================================================================
+       General Purpose / Pin Mux (Bits 260–383)
+       ================================================================ -->
+
+  <field name="RIO_DEVICE_ID" bit_offset="260" width="3"
+         description="RapidIO device ID">
+  </field>
+
+  <field name="RIO_SYS_SIZE" bit_offset="263" width="1"
+         description="RapidIO system size">
+    <value encoding="0" meaning="Small system (256 devices)"/>
+    <value encoding="1" meaning="Large system (65,536 devices)"/>
+  </field>
+
+  <field name="HOST_AGT_B1" bit_offset="264" width="3"
+         description="Host/agent mode — SerDes bank 1">
+    <value encoding="0" meaning="All host (root complex)"/>
+    <value encoding="1" meaning="All agent (endpoint)"/>
+  </field>
+
+  <field name="HOST_AGT_B2" bit_offset="267" width="1"
+         description="Host/agent mode — SerDes bank 2">
+    <value encoding="0" meaning="Host (root complex)"/>
+    <value encoding="1" meaning="Agent (endpoint)"/>
+  </field>
+
+  <field name="GP_INFO" bit_offset="288" width="32"
+         description="General purpose information (no functional effect)">
+  </field>
+
+</rcw_config>

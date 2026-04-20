@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  T1040 / T1042 Reset Configuration Word (RCW) Field Definitions
+  Reference: QorIQ T1040 Reference Manual — Chapter 4 RCW
+  Source: https://github.com/nxp-qoriq/rcw t1040si/t1040.rcwi
+  RCW size: 512 bits (64 bytes), big-endian, MSB-first
+  T1042 is a T1040 variant with different DDR3L support; identical RCW layout.
+-->
+<rcw_config processor="T1040" rcw_bits="512">
+
+  <!-- ================================================================
+       PLL Configuration (Bits 0–95)
+       ================================================================ -->
+
+  <field name="SYS_PLL_CFG" bit_offset="0" width="2"
+         description="System PLL configuration">
+    <value encoding="0" meaning="Platform PLL targeting higher frequency"/>
+    <value encoding="1" meaning="Platform PLL targeting lower frequency"/>
+  </field>
+
+  <field name="SYS_PLL_RAT" bit_offset="2" width="5"
+         description="System PLL multiplier ratio (platform clock : SYSCLK)">
+    <value encoding="3"  meaning="3:1"/>
+    <value encoding="4"  meaning="4:1"/>
+    <value encoding="5"  meaning="5:1"/>
+    <value encoding="6"  meaning="6:1"/>
+    <value encoding="7"  meaning="7:1"/>
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="9"  meaning="9:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="12" meaning="12:1"/>
+  </field>
+
+  <field name="MEM_PLL_CFG" bit_offset="8" width="2"
+         description="Memory controller PLL configuration">
+    <value encoding="0" meaning="Lower frequency reference clock"/>
+    <value encoding="1" meaning="Higher frequency reference clock"/>
+  </field>
+
+  <!-- 6-bit field: MEM_PLL_RAT[10:15] -->
+  <field name="MEM_PLL_RAT" bit_offset="10" width="6"
+         description="Memory controller PLL multiplier ratio (relative to DDR reference clock)">
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="12" meaning="12:1"/>
+    <value encoding="14" meaning="14:1"/>
+    <value encoding="16" meaning="16:1"/>
+    <value encoding="18" meaning="18:1"/>
+    <value encoding="20" meaning="20:1"/>
+    <value encoding="24" meaning="24:1"/>
+    <value encoding="28" meaning="28:1"/>
+    <value encoding="32" meaning="32:1"/>
+  </field>
+
+  <!-- bits 16-23 reserved -->
+
+  <field name="CGA_PLL1_CFG" bit_offset="24" width="2"
+         description="Cluster Group A PLL 1 configuration">
+    <value encoding="0" meaning="PLL targeting higher frequency"/>
+    <value encoding="1" meaning="PLL targeting lower frequency"/>
+  </field>
+
+  <!-- 6-bit field: CGA_PLL1_RAT[26:31] -->
+  <field name="CGA_PLL1_RAT" bit_offset="26" width="6"
+         description="Cluster Group A PLL 1 multiplier ratio (core/platform source)">
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="12" meaning="12:1"/>
+    <value encoding="14" meaning="14:1"/>
+    <value encoding="16" meaning="16:1"/>
+    <value encoding="18" meaning="18:1"/>
+    <value encoding="20" meaning="20:1"/>
+    <value encoding="22" meaning="22:1"/>
+    <value encoding="24" meaning="24:1"/>
+  </field>
+
+  <field name="CGA_PLL2_CFG" bit_offset="32" width="2"
+         description="Cluster Group A PLL 2 configuration">
+    <value encoding="0" meaning="PLL targeting higher frequency"/>
+    <value encoding="1" meaning="PLL targeting lower frequency"/>
+  </field>
+
+  <!-- 6-bit field: CGA_PLL2_RAT[34:39] -->
+  <field name="CGA_PLL2_RAT" bit_offset="34" width="6"
+         description="Cluster Group A PLL 2 multiplier ratio">
+    <value encoding="8"  meaning="8:1"/>
+    <value encoding="10" meaning="10:1"/>
+    <value encoding="12" meaning="12:1"/>
+    <value encoding="14" meaning="14:1"/>
+    <value encoding="16" meaning="16:1"/>
+    <value encoding="18" meaning="18:1"/>
+    <value encoding="20" meaning="20:1"/>
+    <value encoding="22" meaning="22:1"/>
+    <value encoding="24" meaning="24:1"/>
+  </field>
+
+  <!-- bits 40-95 reserved -->
+
+  <!-- C1..C4 PLL select (T1040 cores numbered 1–4) -->
+  <field name="C1_PLL_SEL" bit_offset="96" width="4"
+         description="Core 1 clock PLL select">
+    <value encoding="0" meaning="CGA PLL1 / 1"/>
+    <value encoding="1" meaning="CGA PLL1 / 2"/>
+    <value encoding="2" meaning="CGA PLL1 / 4"/>
+    <value encoding="4" meaning="CGA PLL2 / 1"/>
+    <value encoding="5" meaning="CGA PLL2 / 2"/>
+    <value encoding="6" meaning="CGA PLL2 / 4"/>
+    <value encoding="8" meaning="Platform clock / 1"/>
+  </field>
+
+  <field name="C2_PLL_SEL" bit_offset="100" width="4"
+         description="Core 2 clock PLL select">
+    <value encoding="0" meaning="CGA PLL1 / 1"/>
+    <value encoding="1" meaning="CGA PLL1 / 2"/>
+    <value encoding="2" meaning="CGA PLL1 / 4"/>
+    <value encoding="4" meaning="CGA PLL2 / 1"/>
+    <value encoding="5" meaning="CGA PLL2 / 2"/>
+    <value encoding="6" meaning="CGA PLL2 / 4"/>
+    <value encoding="8" meaning="Platform clock / 1"/>
+  </field>
+
+  <field name="C3_PLL_SEL" bit_offset="104" width="4"
+         description="Core 3 clock PLL select">
+    <value encoding="0" meaning="CGA PLL1 / 1"/>
+    <value encoding="1" meaning="CGA PLL1 / 2"/>
+    <value encoding="2" meaning="CGA PLL1 / 4"/>
+    <value encoding="4" meaning="CGA PLL2 / 1"/>
+    <value encoding="5" meaning="CGA PLL2 / 2"/>
+    <value encoding="6" meaning="CGA PLL2 / 4"/>
+    <value encoding="8" meaning="Platform clock / 1"/>
+  </field>
+
+  <field name="C4_PLL_SEL" bit_offset="108" width="4"
+         description="Core 4 clock PLL select">
+    <value encoding="0" meaning="CGA PLL1 / 1"/>
+    <value encoding="1" meaning="CGA PLL1 / 2"/>
+    <value encoding="2" meaning="CGA PLL1 / 4"/>
+    <value encoding="4" meaning="CGA PLL2 / 1"/>
+    <value encoding="5" meaning="CGA PLL2 / 2"/>
+    <value encoding="6" meaning="CGA PLL2 / 4"/>
+    <value encoding="8" meaning="Platform clock / 1"/>
+  </field>
+
+  <!-- ================================================================
+       SerDes PLL and Protocol Configuration (Bits 128–191)
+       T1040 has a single SerDes block (S1).
+       ================================================================ -->
+
+  <!-- 8-bit field: SRDS_PRTCL_S1[128:135] -->
+  <field name="SRDS_PRTCL_S1" bit_offset="128" width="8"
+         description="SerDes 1 protocol select (see SerDes Lane Assignments table)">
+    <value encoding="0x66" meaning="2 RGMII + 1 SGMII + 2 QSGMII + PCIe1 + SATA"/>
+    <value encoding="0x40" meaning="4× SGMII + PCIe1 + PCIe2 + PCIe3"/>
+    <value encoding="0x1E" meaning="PCIe1(x4) + PCIe2(x4)"/>
+    <value encoding="0x1A" meaning="PCIe1(x4) + PCIe2(x2) + SATA1 + SATA2"/>
+  </field>
+
+  <field name="FM1_MAC_RAT" bit_offset="158" width="1"
+         description="Frame Manager 1 MAC ratio">
+    <value encoding="0" meaning="MAC runs at 1/2 the FM1 clock"/>
+    <value encoding="1" meaning="MAC runs at 1× FM1 clock"/>
+  </field>
+
+  <field name="SRDS_PLL_REF_CLK_SEL_S1" bit_offset="160" width="2"
+         description="SerDes 1 PLL reference clock select (bit 0=PLL1, bit 1=PLL2)">
+    <value encoding="0" meaning="100 MHz reference for both PLLs"/>
+    <value encoding="1" meaning="100 MHz for PLL1, 125 MHz for PLL2"/>
+    <value encoding="2" meaning="125 MHz for PLL1, 100 MHz for PLL2"/>
+    <value encoding="3" meaning="125 MHz reference for both PLLs"/>
+  </field>
+
+  <field name="SRDS_PLL_PD_S1" bit_offset="168" width="2"
+         description="SerDes 1 PLL power down (bit 0=PLL1, bit 1=PLL2; 0=active, 1=off)">
+  </field>
+
+  <field name="SRDS_DIV_PEX" bit_offset="176" width="2"
+         description="SerDes PCIe frequency divider">
+  </field>
+
+  <field name="EMI1_MODE" bit_offset="183" width="1"
+         description="MDIO/EMI1 external reference clock">
+    <value encoding="0" meaning="Internal reference (from SerDes)"/>
+    <value encoding="1" meaning="External reference clock"/>
+  </field>
+
+  <field name="DDR_REFCLK_SEL" bit_offset="186" width="2"
+         description="DDR reference clock select">
+    <value encoding="0" meaning="DDR_REFCLK equals SYSCLK"/>
+    <value encoding="1" meaning="Separate DDR_REFCLK input pin"/>
+  </field>
+
+  <field name="DDR_FDBK_MULT" bit_offset="190" width="2"
+         description="DDR feedback multiplier (applied to DDR_REFCLK before MEM_PLL_RAT)">
+    <value encoding="0" meaning="× 1"/>
+    <value encoding="1" meaning="× 1"/>
+    <value encoding="2" meaning="× 2"/>
+    <value encoding="3" meaning="× 3"/>
+  </field>
+
+  <!-- ================================================================
+       Boot Configuration (Bits 192–223)
+       ================================================================ -->
+
+  <field name="PBI_SRC" bit_offset="192" width="4"
+         description="Pre-boot initialization source">
+    <value encoding="0"  meaning="I2C1 (default/normal)"/>
+    <value encoding="4"  meaning="SPI"/>
+    <value encoding="6"  meaning="eSDHC/MMC"/>
+    <value encoding="8"  meaning="NAND Flash (small page)"/>
+    <value encoding="9"  meaning="NAND Flash (large page)"/>
+    <value encoding="12" meaning="NOR Flash (8-bit)"/>
+    <value encoding="13" meaning="NOR Flash (16-bit)"/>
+    <value encoding="14" meaning="NOR Flash (IFC GPCM 32-bit)"/>
+    <value encoding="15" meaning="Disabled"/>
+  </field>
+
+  <field name="BOOT_LOC" bit_offset="196" width="5"
+         description="Boot location">
+    <value encoding="0"  meaning="PCI Express 1"/>
+    <value encoding="1"  meaning="PCI Express 2"/>
+    <value encoding="2"  meaning="PCI Express 3"/>
+    <value encoding="16" meaning="DDR"/>
+    <value encoding="24" meaning="IFC NAND Flash (small page)"/>
+    <value encoding="25" meaning="IFC NAND Flash (large page)"/>
+    <value encoding="28" meaning="IFC NOR Flash (8-bit)"/>
+    <value encoding="29" meaning="IFC NOR Flash (16-bit)"/>
+    <value encoding="30" meaning="IFC NOR Flash (32-bit)"/>
+  </field>
+
+  <field name="BOOT_HO" bit_offset="201" width="1"
+         description="Boot holdoff">
+    <value encoding="0" meaning="Cores 1–3 in holdoff; core 0 boots"/>
+    <value encoding="1" meaning="All cores in holdoff"/>
+  </field>
+
+  <field name="SB_EN" bit_offset="202" width="1"
+         description="Secure boot enable">
+    <value encoding="0" meaning="Disabled"/>
+    <value encoding="1" meaning="Enabled"/>
+  </field>
+
+  <field name="IFC_MODE" bit_offset="203" width="9"
+         description="Integrated Flash Controller (IFC) pin group enable bitmask">
+  </field>
+
+  <!-- ================================================================
+       Clocking Configuration (Bits 224–255)
+       ================================================================ -->
+
+  <!-- 3-bit field matching T2080 HWA_CGA_M1_CLK_SEL encodings -->
+  <field name="HWA_CGA_M1_CLK_SEL" bit_offset="224" width="3"
+         description="Frame Manager 1 clock select">
+    <value encoding="1" meaning="CGA PLL1 / 1"/>
+    <value encoding="2" meaning="CGA PLL1 / 2"/>
+    <value encoding="3" meaning="CGA PLL1 / 3"/>
+    <value encoding="4" meaning="CGA PLL1 / 4"/>
+    <value encoding="5" meaning="Platform clock"/>
+    <value encoding="6" meaning="CGA PLL2 / 2"/>
+    <value encoding="7" meaning="CGA PLL2 / 3"/>
+  </field>
+
+  <field name="DRAM_LAT" bit_offset="230" width="2"
+         description="DDR latency setting">
+    <value encoding="0" meaning="6-6-6 / 7-7-7 DRAMs"/>
+    <value encoding="1" meaning="8-8-8 through 11-11-11 DRAMs"/>
+    <value encoding="3" meaning="5-5-5 DRAMs"/>
+  </field>
+
+  <field name="DDR_RATE" bit_offset="232" width="1"
+         description="DDR data rate">
+  </field>
+
+  <!-- ================================================================
+       General Purpose / Host-Agent (Bits 260–319)
+       ================================================================ -->
+
+  <field name="HOST_AGT_PEX" bit_offset="264" width="3"
+         description="PCIe host/agent mode">
+    <value encoding="0" meaning="All host (root complex)"/>
+    <value encoding="1" meaning="All agent (endpoint)"/>
+  </field>
+
+  <field name="GP_INFO" bit_offset="288" width="32"
+         description="General purpose information (no functional effect)">
+  </field>
+
+</rcw_config>
